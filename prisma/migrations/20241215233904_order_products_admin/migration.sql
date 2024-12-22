@@ -35,6 +35,7 @@ CREATE TABLE "OrderProducts" (
     "id" SERIAL NOT NULL,
     "orderId" INTEGER NOT NULL,
     "productId" INTEGER NOT NULL,
+    "quantity" INTEGER NOT NULL,
 
     CONSTRAINT "OrderProducts_pkey" PRIMARY KEY ("id")
 );
