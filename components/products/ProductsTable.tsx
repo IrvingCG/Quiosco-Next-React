@@ -1,9 +1,10 @@
+import { ProductWithCategory } from "@/app/admin/products/page"
 import { formatCurrency } from "@/src/utils"
-import { Product } from "@prisma/client"
+import { Category, Product } from "@prisma/client"
 import Link from "next/link"
 
 type ProductTableProps = {
-    products : Product[]
+    products: ProductWithCategory
 }
 
 export default function ProductTable({products}: ProductTableProps) {
@@ -39,7 +40,7 @@ export default function ProductTable({products}: ProductTableProps) {
                                      {formatCurrency(product.price)}
                                     </td> 
                                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                      {product.categoryId}
+                                      {product.category.name}
                                     </td>
                                     <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                                      <Link href={`/admin/products/${product.id}/edit`}
